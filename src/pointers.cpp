@@ -17,7 +17,7 @@ namespace gm_kill_on_hang
 
 #if ARCHITECTURE_IS_X86_64
 		batch.add("gpGlobals", "89 83 ? ? ? ? 48 8B 05 ? ? ? ? F3 0F 10 00", [this](memory::handle ptr) {
-			m_globals = ptr.add(5).add(3).rip().as<CGlobalVars *>();
+			m_globals = ptr.add(5).add(3).rip().as<CGlobalVars **>();
 		});
 
 		batch.add("CGameServer", "0F 85 ? ? ? ? 48 8B 1D ? ? ? ? 48 89 DF", [this](memory::handle ptr) {
