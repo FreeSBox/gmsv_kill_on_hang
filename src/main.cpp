@@ -15,7 +15,6 @@ GMOD_MODULE_OPEN()
 	using namespace gm_kill_on_hang;
 
 	pointers_instance = std::make_unique<pointers>();
-	Msg("Pointers initialized.\n");
 	
 	g_running = true;
 
@@ -31,13 +30,11 @@ GMOD_MODULE_CLOSE()
 	using namespace gm_kill_on_hang;
 
 	pointers_instance.reset();
-	Msg("Pointers uninitialized.\n");
 
 	g_running = false;
 
 	killer_instance->join();
 	killer_instance.reset();
-	Msg("Killer uninitialized.\n");
 
 	return 0;
 }

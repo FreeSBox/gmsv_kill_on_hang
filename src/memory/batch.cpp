@@ -24,7 +24,6 @@ namespace memory
 				std::lock_guard<std::mutex> lock(s_entry_mutex);// Acquire a lock on the mutex to synchronize access.
 
 				std::invoke(std::move(entry.m_callback), *result);
-				Msg("Found '%s' at HL2.exe+'%p'\n", entry.m_name.c_str(), (void*)(result->as<char*>() - region.begin().as<char*>()));
 
 				return true;
 			}
