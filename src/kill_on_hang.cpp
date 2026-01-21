@@ -16,7 +16,7 @@ namespace gm_kill_on_hang
 			float curtime = (*g_pointers->m_globals)->curtime;
 			int player_count = g_pointers->m_sv->GetNumPlayers();
 
-			if (player_count > 0 && old_curtime == curtime)
+			if (player_count > 0 && old_curtime == curtime && g_pointers->m_sv->IsActive())
 			{
 				Msg("HANG DETECTED, KILLING THE PROCESS");
 				exit(1);
