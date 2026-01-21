@@ -17,7 +17,7 @@ namespace gm_kill_on_hang
 			int tick_count = (*g_pointers->m_globals)->tickcount;
 			int player_count = g_pointers->m_sv->GetNumPlayers();
 
-			if (player_count > 0 && g_pointers->m_sv->IsActive() && tick_count > 5000 && old_curtime == curtime)
+			if (player_count > 0 && g_pointers->m_sv->IsActive() && old_curtime == curtime)
 			{
 				std::printf("HANG DETECTED, KILLING THE PROCESS, player_count: %i, tick_count: %i, old_curtime: %f, curtime: %f\n", player_count, tick_count, old_curtime, curtime);
 				std::this_thread::sleep_for(1s);
@@ -26,7 +26,7 @@ namespace gm_kill_on_hang
 
 			old_curtime = curtime;
 
-			std::this_thread::sleep_for(10s);
+			std::this_thread::sleep_for(30s);
 		}
 	}
 }
