@@ -1,12 +1,15 @@
-### gmsv_kill_on_hang
+## gmsv_kill_on_hang
 
 Creates a new thread that checks if `curtime` is incremented every 10 seconds, if it isn't it kills the process.
 
 ### Why
 Because my server keeps hanging and doesn't get restarted automatically, this is annoying I'd rather have it restart automatically.
 
-### Does it actually work
-I don't know, so don't rely on this.
+### Does this work
+Usually. After a month of usage on freesbox this module has failed to restart the server once.
+
+### Does this work with `sv_hibernate_think 0`
+Yes.
 
 ### public or x86-64
 It should support both but I only tested on public.
