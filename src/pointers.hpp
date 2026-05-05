@@ -1,7 +1,7 @@
 #pragma once
 
 class CGlobalVars;
-class CGameServer;
+class IServer;
 
 namespace gm_kill_on_hang
 {
@@ -17,7 +17,7 @@ namespace gm_kill_on_hang
 	public:
 
 		CGlobalVars** m_globals{};
-		CGameServer* m_sv{};
+		IServer* m_sv{};
 	};
 
 	inline pointers* g_pointers{};

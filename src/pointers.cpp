@@ -24,12 +24,12 @@ namespace gm_kill_on_hang
 			m_sv = ptr.add(5).add(3).rip().as<CGameServer *>();
 		});
 #elif ARCHITECTURE_IS_X86
-		batch.add("gpGlobals", "0F 2F 05 ? ? ? ? 73 51", [this](memory::handle ptr) {
-			m_globals = ptr.add(3).as<CGlobalVars **>();
+		batch.add("gpGlobals", "F3 0F 10 05 ? ? ? ? 09", [this](memory::handle ptr) {
+			m_globals = ptr.add(4).as<CGlobalVars **>();
 		});
 
-		batch.add("CGameServer", "C7 04 24 ? ? ? ? A3 ? ? ? ? E8 ? ? ? ? D9", [this](memory::handle ptr) {
-			m_sv = *ptr.add(3).as<CGameServer **>();
+		batch.add("CGameServer", "C7 04 24 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 84 C0 0F", [this](memory::handle ptr) {
+			m_sv = *ptr.add(3).as<IServer **>();
 		});
 #endif
 

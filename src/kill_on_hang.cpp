@@ -1,19 +1,19 @@
 #include "pointers.hpp"
 
 #include "edict.h"
-#include "../engine/server.h"
+#include "iserver.h"
 
 #include <thread>
 
 namespace gm_kill_on_hang
 {
 	using namespace std::chrono_literals;
-	static float old_curtime = 0;
+	static double old_curtime = 0;
 	void update_kill_on_hang()
 	{
 		while (g_running)
 		{
-			float curtime = (*g_pointers->m_globals)->curtime;
+			double curtime = (*g_pointers->m_globals)->curtime;
 			int tick_count = (*g_pointers->m_globals)->tickcount;
 			int player_count = g_pointers->m_sv->GetNumPlayers();
 
